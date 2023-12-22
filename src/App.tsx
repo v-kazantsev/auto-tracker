@@ -1,18 +1,16 @@
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Home, NotFound, DeviceList } from 'pages';
+import { Layout } from 'components';
 
 function App() {
   return (
-    <>
-    <div style={{display: 'flex'}}>
-      <Link to="/devices">Список устройств</Link>
-    </div>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/devices" element={<DeviceList />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/devices" element={<DeviceList />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
     </Routes>
-    </>
   );
 }
 
