@@ -7,13 +7,12 @@ type Props = {
   caption: string;
 }
 
-export const UiLink = ({ to, caption }: Props) => (
+export const UiNavLink = ({ to, caption }: Props) => (
   <NavLink to={to}>
     {<Typography
       variant="h6"
       noWrap
       sx={{
-        mr: 2,
         display: { xs: 'none', md: 'flex' },
         fontWeight: 700,
         color: 'inherit',
