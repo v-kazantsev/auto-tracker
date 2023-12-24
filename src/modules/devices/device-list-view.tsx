@@ -8,9 +8,9 @@ export const DeviceListView = () => {
   const { data, loading, error, filter, setFilter } = useDeviceListView();
 
   const filteredData = () => {
-    if (!data) return [];
+    if (!data || !Array.isArray(data)) return [];
     if (!filter) return data;
-    return data.filter((item) => item.id?.toString() === filter);
+    return data.filter((item) => item?.id?.toString() === filter);
   }
 
   if (error) return <UiCommonError />;
