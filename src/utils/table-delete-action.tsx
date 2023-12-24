@@ -1,5 +1,7 @@
 import { GridActionsCellItem, GridRowId } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { store } from 'storage/store';
+import {openModal } from 'storage/slices/modal/actions';
 
 type Props = {
   id: GridRowId;
@@ -11,6 +13,6 @@ export const tableDeleteAction = ({id, row}: Props) => {
   [<GridActionsCellItem
     icon={<DeleteIcon />}
     label="Delete"
-    onClick={() => console.log(id)}
+    onClick={() => store.dispatch(openModal())}
   />]
 )} ;

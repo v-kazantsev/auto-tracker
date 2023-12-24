@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { DevicesState } from 'types/store';
+import { Store } from 'types/store';
 import { tableDataNormalizer } from 'utils/table-data-normalizer';
 
 export const devicesSelector = createSelector(
-  (state: DevicesState) => state.devices as any,
+  (state: Store) => state.devices,
   ({isLoading, error, data}) => ({
     isLoading,
     error,

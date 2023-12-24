@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from '@redux-saga/core';
 import deviceListReducer from 'storage/slices/devices/reducer';
+import { modalReducer } from 'storage/slices/modal/reducer';
 import rootSaga from './sagas';
 
 const rootReducer = combineReducers({
-  devices: deviceListReducer
+  devices: deviceListReducer,
+  modal: modalReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();
