@@ -1,9 +1,11 @@
 import { all } from '@redux-saga/core/effects';
-import { getDeviceListWatcher } from 'storage/slices/devices/sagas';
+import { getDeviceListWatcher, deleteDeviceWatcher, addDeviceWatcher } from 'storage/slices/devices/sagas';
 
 function* rootSaga() {
   yield all([
     getDeviceListWatcher(),
+    deleteDeviceWatcher(),
+    addDeviceWatcher()
   ])
 }
 

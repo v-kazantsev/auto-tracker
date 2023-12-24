@@ -3,10 +3,10 @@ import { initialState } from './state';
 
 export const modalReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase('modal/open', (state) => {
+    .addCase('MODAL/OPEN', (state) => {
       state.open = true
     })
-    .addCase('modal/close', (state) => {
+    .addCase('MODAL/CLOSE', (state) => {
       state.open = false
     })
 })

@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const openModal = createAction('modal/open');
+const openModal = createAction('MODAL/OPEN');
 
-const closeModal = createAction('modal/close');
+const closeModal = createAction('MODAL/CLOSE');
 
 export { openModal, closeModal };

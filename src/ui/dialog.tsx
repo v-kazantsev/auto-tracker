@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog,  DialogTitle, DialogContent, IconButton } from '@mui/material';
+import { Dialog,  DialogTitle, DialogContent, IconButton, DialogActions, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 type Props = {
@@ -33,5 +33,10 @@ export const UiDialog = ({ open, onClick, children, title = '' }: Props) => (
     <DialogContent dividers>
       {children}
     </DialogContent>
+    <DialogActions>
+      <Button autoFocus onClick={onClick} variant='contained' sx={{mx: 'auto', my: 3}}>
+        ЗАКРЫТЬ
+      </Button>
+    </DialogActions>
   </Dialog>
 );

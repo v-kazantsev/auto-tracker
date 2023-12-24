@@ -1,7 +1,8 @@
-import { getDeviceListRoutine } from './actions';
 import { createReducer } from '@reduxjs/toolkit';
+import { GridRowId } from '@mui/x-data-grid';
 import { initialState } from './state';
 import { Device } from 'types/models';
+import { getDeviceListRoutine, deleteDeviceRoutine } from './actions';
 
 const deviceListReducer = createReducer(initialState, (builder) => {
   builder
@@ -17,6 +18,9 @@ const deviceListReducer = createReducer(initialState, (builder) => {
   })
   .addCase(getDeviceListRoutine.FULFILL, (state) => {
     state.isLoading = false;
+  })
+  .addCase(deleteDeviceRoutine.REQUEST, (state, action: {type: string, payload: { id: GridRowId}}) => {
+    state.error = undefined;
   })
 });
 

@@ -18,6 +18,7 @@ export const UiSearchBar = ({ value, onChange}: Props) => (
           value={value}
           onChange={onChange}
           InputProps={{
+            placeholder: 'Поиск',
             endAdornment: (
               <InputAdornment
                 position="end"
