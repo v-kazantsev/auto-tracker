@@ -8,7 +8,6 @@ function* getDeviceListWorker() {
   try {
     yield put(request());
     const { data } = yield call(DevicesAPI.getAllDevices);
-    console.log(data)
     yield put(success(data));
 
   } catch (error) {

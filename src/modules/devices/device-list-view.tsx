@@ -1,13 +1,28 @@
-import { useSelector } from 'react-redux';
+import { Skeleton, Alert, AlertTitle } from '@mui/material';
 import { DeviceList } from './device-list';
 import { devicesTableConfig } from './table-config';
-import { mockData } from './mock-data';
-import { devicesSelector } from 'storage/slices/devices/selectors';
+import { useDeviceListView } from './use-device-list-view';
+import { COMMON_ERROR } from 'config/constants';
 
 export const DeviceListView = () => {
-  const devices = useSelector(devicesSelector);
-  console.log('DEVICES', devices)
-  return (
-    <DeviceList config={devicesTableConfig} tableData={mockData} />
+  const { data, loading, error } = useDeviceListView();
+
+  if (error) return (
+    <Alert severity="error">
+    <AlertTitle>Ошибка</AlertTitle>
+      {COMMON_ERROR}
+    </Alert>
+  )
+  
+  return loading
+  ? (
+    <>
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+    </>
+    
+  ) : (
+    <DeviceList config={devicesTableConfig} tableData={data} />
   );
 };

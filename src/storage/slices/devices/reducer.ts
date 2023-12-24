@@ -9,8 +9,8 @@ const deviceListReducer = createReducer(initialState, (builder) => {
     state.isLoading = true;
     state.error = undefined;
   })
-  .addCase(getDeviceListRoutine.SUCCESS, (state, action: {type: string, payload: { data: Array<Device>}}) => {
-    state.data = action.payload.data;
+  .addCase(getDeviceListRoutine.SUCCESS, (state, action: {type: string, payload: Array<Device>}) => {
+    state.data = action.payload;
   })
   .addCase(getDeviceListRoutine.FAILURE, (state, action: {type: string, payload: string}) => {
     state.error = action.payload;
